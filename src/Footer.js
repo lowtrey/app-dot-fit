@@ -4,7 +4,7 @@ function Footer() {
     return (
         <div>
             <br /><hr />
-            <h3>© 2019 Q-Code</h3>
+            <h6>© 2019   &#123; yerrdmehh &#125;</h6>
         </div>
     );
 }
