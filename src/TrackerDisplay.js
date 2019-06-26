@@ -2,6 +2,10 @@ import React from 'react';
 import TrackerForm from './TrackerForm';
 
 class TrackerDisplay extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {logs: []};
+    }
     render() {
         return (
             <div>

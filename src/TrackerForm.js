@@ -49,7 +49,7 @@ class TrackerForm extends React.Component {
                         onChange={this.handleChange}
                     />
                     <br />
-                    <label htmlFor='plank'>Plank: </label>
+                    <label htmlFor='plank'>Plank (seconds): </label>
                     <input
                         id='plank'
                         type='number'
