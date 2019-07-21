@@ -1,3 +1,4 @@
+// import 'date-fns';
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -9,8 +10,10 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import DateFnsUtils from '@date-io/date-fns';
+import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers';
 
-// TODO
+//TODO
 // create array of sessionLogs and add to it after submitting new session in form
 // style recordsDisplay components similar to miniPalettes from colorcopy
 // save logs in localStorage
@@ -79,6 +82,18 @@ class Header extends React.Component {
 						<DialogTitle>Enter Session Details:</DialogTitle>
 						<DialogContent>
 							<form className={classes.container} id='form' onSubmit={this.handleSubmit}>
+								<FormControl className={classes.formControl}>
+									<MuiPickersUtilsProvider utils={DateFnsUtils}>
+										<DatePicker
+											label="Date"
+											value={this.selectedDate}
+											onChange={this.handleDateChange}
+											autoOk
+											disableFuture
+											animateYearScrolling
+										/>
+									</MuiPickersUtilsProvider>
+								</FormControl>
 								<FormControl className={classes.formControl}>
 									<InputLabel htmlFor="exercise-type">Exercise</InputLabel>
 									<Select
