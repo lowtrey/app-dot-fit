@@ -7,7 +7,6 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
-import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
@@ -27,21 +26,26 @@ class Header extends React.Component {
 		super(props);
 		this.state = {
 			open: false,
-			age: ''
+			exercise: '',
+			reps: ''
 		};
 		this.handleClickOpen = this.handleClickOpen.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.handleClose = this.handleClose.bind(this);
 	}
-	handleChange = name => event => {
-		this.setState({ [name]: Number(event.target.value) });
+	handleChange(event) {
+		this.setState({ [event.target.name]: event.target.value });
 	};
 	handleClickOpen() {
 		this.setState({ open: true });
 	};
 	handleClose() {
-		this.setState({ open: false });
+		this.setState({ open: false, exercise: '', reps: '' });
 	};
+	handleSubmit() {
+		console.log("Submitted!");
+	}
 
 	render() {
 		const { classes } = this.props;
@@ -54,44 +58,47 @@ class Header extends React.Component {
 				<div>
 					<Button onClick={this.handleClickOpen}>New Session</Button>
 					<Dialog disableBackdropClick disableEscapeKeyDown open={this.state.open} onClose={this.handleClose}>
-						<DialogTitle>Log Your Workout</DialogTitle>
+						<DialogTitle>Enter Session Details:</DialogTitle>
 						<DialogContent>
-							<form className={classes.container}>
+							<form className={classes.container} id='form' onSubmit={this.handleSubmit}>
 								<FormControl className={classes.formControl}>
-									<InputLabel htmlFor="age-native-simple">Exercise</InputLabel>
+									<InputLabel htmlFor="exercise-type">Exercise</InputLabel>
 									<Select
 										native
-										value={this.state.age}
-										onChange={this.handleChange('age')}
-										input={<Input id="age-native-simple" />}
+										required
+										name='exercise'
+										value={this.state.exercise}
+										onChange={this.handleChange}
+										input={<Input id="exercise-type" />}
 									>
-										<option value="" />
-										<option value={10}>Squats</option>
-										<option value={20}>Pushups</option>
-										<option value={30}>Dips</option>
-										<option value={30}>Plank</option>
+										<option value=""></option>
+										<option value='squats'>Squats</option>
+										<option value='pushups'>Pushups</option>
+										<option value='dips'>Dips</option>
+										<option value='planks'>Planks</option>
 									</Select>
 								</FormControl>
 								<FormControl className={classes.formControl}>
-									<InputLabel htmlFor="age-simple">Reps</InputLabel>
+									<InputLabel htmlFor="exercise-reps">Reps</InputLabel>
 									<Select
-										value={this.state.age}
-										onChange={this.handleChange('age')}
-										input={<Input id="age-simple" />}
+										native
+										required
+										name='reps'
+										value={this.state.reps}
+										onChange={this.handleChange}
+										input={<Input id="exercise-reps" />}
 									>
-										<MenuItem value="">
-											<em>None</em>
-										</MenuItem>
-										<MenuItem value={5}>5</MenuItem>
-										<MenuItem value={10}>10</MenuItem>
-										<MenuItem value={15}>15</MenuItem>
-										<MenuItem value={20}>20</MenuItem>
-										<MenuItem value={25}>25</MenuItem>
-										<MenuItem value={30}>30</MenuItem>
-										<MenuItem value={35}>35</MenuItem>
-										<MenuItem value={40}>40</MenuItem>
-										<MenuItem value={45}>45</MenuItem>
-										<MenuItem value={50}>50</MenuItem>
+										<option value=""></option>
+										<option value={5}>5</option>
+										<option value={10}>10</option>
+										<option value={15}>15</option>
+										<option value={20}>20</option>
+										<option value={25}>25</option>
+										<option value={30}>30</option>
+										<option value={35}>35</option>
+										<option value={40}>40</option>
+										<option value={45}>45</option>
+										<option value={50}>50</option>
 									</Select>
 								</FormControl>
 							</form>
@@ -100,7 +107,7 @@ class Header extends React.Component {
 							<Button onClick={this.handleClose} color="primary">
 									Cancel
 							</Button>
-							<Button onClick={this.handleClose} color="primary">
+							<Button type='submit' form='form' color="primary">
 									Ok
 							</Button>
 						</DialogActions>
