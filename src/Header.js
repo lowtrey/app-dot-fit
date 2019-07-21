@@ -56,7 +56,14 @@ class Header extends React.Component {
 					<h5>&#123;code - move - repeat&#125;</h5>
 				</div>
 				<div>
-					<Button onClick={this.handleClickOpen}>New Session</Button>
+					<Button 
+						size='large' 
+						color='primary'
+						variant='contained'
+						onClick={this.handleClickOpen}
+					>
+						New Session
+					</Button>
 					<Dialog disableBackdropClick disableEscapeKeyDown open={this.state.open} onClose={this.handleClose}>
 						<DialogTitle>Enter Session Details:</DialogTitle>
 						<DialogContent>
@@ -104,11 +111,11 @@ class Header extends React.Component {
 							</form>
 						</DialogContent>
 						<DialogActions>
-							<Button onClick={this.handleClose} color="primary">
+							<Button onClick={this.handleClose} color="secondary">
 									Cancel
 							</Button>
 							<Button type='submit' form='form' color="primary">
-									Ok
+									Log!
 							</Button>
 						</DialogActions>
 					</Dialog>
