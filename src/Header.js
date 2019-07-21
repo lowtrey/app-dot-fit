@@ -10,6 +10,14 @@ import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
+// TODO
+// create array of sessionLogs and add to it after submitting new session in form
+// style recordsDisplay components similar to miniPalettes from colorcopy
+// save logs in localStorage
+// save logs to database (research serverless)
+// move dialog to its own component
+// move styles to their own components
+
 const styles = theme => ({
 	container: {
 		display: 'flex',
@@ -27,7 +35,10 @@ class Header extends React.Component {
 		this.state = {
 			open: false,
 			exercise: '',
-			reps: ''
+			reps: '',
+			sessionLog: [
+				{}
+			]
 		};
 		this.handleClickOpen = this.handleClickOpen.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
