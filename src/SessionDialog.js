@@ -11,6 +11,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers';
+import AddCircleIcon from '@material-ui/icons/AddCircleOutline';
 
 const styles = theme => ({
 	container: {
@@ -69,13 +70,13 @@ class SessionDialog extends React.Component {
     return (
       <div>
         <Button
-          style={{marginBottom: '1rem'}}
+          style={{marginBottom: '1rem', paddingLeft: '1rem'}}
           size='large' 
           color='primary'
           variant='contained'
           onClick={this.handleClickOpen}
         >
-          New Session
+          <AddCircleIcon style={{height: '1rem'}} className='icon' />New Session 
         </Button>
         <Dialog disableBackdropClick open={open} onClose={this.handleClose}>
           <DialogTitle>Enter Session Details:</DialogTitle>
