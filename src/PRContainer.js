@@ -1,5 +1,6 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
+import PR from './PR';
 import SessionDialog from './SessionDialog';
 import Typography from '@material-ui/core/Typography';
 import './PRContainer.css';
@@ -21,7 +22,8 @@ class PRContainer extends React.Component {
 		return (
 				<Paper elevation={3} className='PRContainer'>
 					<SessionDialog addSession={this.addSession} />
-			
+					<div className='CardContainer'><PR /><PR /><PR /><PR /></div>
+					
 				</Paper>
 		);
 	}

@@ -1,6 +1,12 @@
 .PRContainer {
-  width: 60%;
-  height: 535px;
+  width: 80%;
+  height: 67vh;
   margin-top: 1rem;
   padding: 1rem;
+}
+
+.CardContainer {
+  height: 90%;
+  display: flex;
+  flex-wrap: wrap;
 }
