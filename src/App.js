@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './Header';
-import RecordsContainer from './RecordsContainer';
+import PRContainer from './PRContainer';
 import Footer from './Footer';
 import './App.css';
 
@@ -9,7 +9,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-				<RecordsContainer />
+				<PRContainer />
 				<Footer />
       </div>
     );

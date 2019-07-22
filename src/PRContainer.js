@@ -1,7 +1,10 @@
 import React from 'react';
+import Paper from '@material-ui/core/Paper';
 import SessionDialog from './SessionDialog';
+import Typography from '@material-ui/core/Typography';
+import './PRContainer.css';
 
-class RecordsContainer extends React.Component {
+class PRContainer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -16,14 +19,15 @@ class RecordsContainer extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<SessionDialog addSession={this.addSession} />
-			</div>
+				<Paper elevation={3} className='PRContainer'>
+					<SessionDialog addSession={this.addSession} />
+			
+				</Paper>
 		);
 	}
 }
 
-export default RecordsContainer;
+export default PRContainer;
 
 //TODO
 // style recordsDisplay components similar to miniPalettes from colorcopy

@@ -68,7 +68,8 @@ class SessionDialog extends React.Component {
     const { classes } = this.props;
     return (
       <div>
-        <Button 
+        <Button
+          style={{marginBottom: '1rem'}}
           size='large' 
           color='primary'
           variant='contained'
