@@ -26,7 +26,6 @@ class RecordsContainer extends React.Component {
 export default RecordsContainer;
 
 //TODO
-// create array of sessionLogs and add to it after submitting new session in form
 // style recordsDisplay components similar to miniPalettes from colorcopy
 // save logs in localStorage
 // save logs to database (research serverless)
