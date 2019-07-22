@@ -24,75 +24,119 @@ const styles = theme => ({
 });
 
 class SessionDialog extends React.Component {
+  constructor(props) {
+		super(props);
+		this.state = {
+      open: false,
+			selectedDate: Date(),
+			exercise: '',
+			reps: '',
+			sessionLog: [
+				{}
+			]
+		};
+		this.handleDateChange = this.handleDateChange.bind(this);
+		this.handleClickOpen = this.handleClickOpen.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleChange = this.handleChange.bind(this);
+		this.handleClose = this.handleClose.bind(this);
+  };
+  handleChange(e) {
+		this.setState({ [e.target.name]: e.target.value });
+	};
+	handleClickOpen() {
+		this.setState({ open: true });
+	};
+	handleClose() {
+		this.setState({ open: false, exercise: '', reps: '' });
+	};
+	handleSubmit() {
+		console.log("Submitted!");
+	};
+	handleDateChange(e) {
+		this.setState({ selectedDate: e });
+	};
+  
   render() {
-    const { classes, open, selectedDate, exercise, reps, handleClose } = this.props;
+    const { exercise, open, reps, selectedDate } = this.state;
+    const { classes } = this.props;
     return (
-      <Dialog disableBackdropClick open={open} onClose={handleClose}>
-        <DialogTitle>Enter Session Details:</DialogTitle>
-        <DialogContent>
-          <form className={classes.container} id='form' onSubmit={this.handleSubmit}>
-            <FormControl className={classes.formControl}>
-              <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <DatePicker
-                  label="Date"
-                  disableFuture
-                  inputVariant='outlined'
-                  value={selectedDate}
-                  onChange={this.handleDateChange}
-                />
-              </MuiPickersUtilsProvider>
-            </FormControl>
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="exercise-type">Exercise</InputLabel>
-              <Select
-                native
-                required
-                name='exercise'
-                value={exercise}
-                onChange={this.handleChange}
-                input={<Input id="exercise-type" />}
-              >
-                <option value=""></option>
-                <option value='squats'>Squats</option>
-                <option value='pushups'>Pushups</option>
-                <option value='dips'>Dips</option>
-                <option value='planks'>Planks</option>
-              </Select>
-            </FormControl>
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="exercise-reps">Reps</InputLabel>
-              <Select
-                native
-                required
-                name='reps'
-                value={reps}
-                onChange={this.handleChange}
-                input={<Input id="exercise-reps" />}
-              >
-                <option value=""></option>
-                <option value={5}>5</option>
-                <option value={10}>10</option>
-                <option value={15}>15</option>
-                <option value={20}>20</option>
-                <option value={25}>25</option>
-                <option value={30}>30</option>
-                <option value={35}>35</option>
-                <option value={40}>40</option>
-                <option value={45}>45</option>
-                <option value={50}>50</option>
-              </Select>
-            </FormControl>
-          </form>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="secondary">
-              Cancel
-          </Button>
-          <Button type='submit' form='form' color="primary">
-              Log!
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <div>
+        <Button 
+          size='large' 
+          color='primary'
+          variant='contained'
+          onClick={this.handleClickOpen}
+        >
+          New Session
+        </Button>
+        <Dialog disableBackdropClick open={open} onClose={this.handleClose}>
+          <DialogTitle>Enter Session Details:</DialogTitle>
+          <DialogContent>
+            <form className={classes.container} id='form' onSubmit={this.handleSubmit}>
+              <FormControl className={classes.formControl}>
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                  <DatePicker
+                    label="Date"
+                    disableFuture
+                    inputVariant='outlined'
+                    value={selectedDate}
+                    onChange={this.handleDateChange}
+                  />
+                </MuiPickersUtilsProvider>
+              </FormControl>
+              <FormControl className={classes.formControl}>
+                <InputLabel htmlFor="exercise-type">Exercise</InputLabel>
+                <Select
+                  native
+                  required
+                  name='exercise'
+                  value={exercise}
+                  onChange={this.handleChange}
+                  input={<Input id="exercise-type" />}
+                >
+                  <option value=""></option>
+                  <option value='squats'>Squats</option>
+                  <option value='pushups'>Pushups</option>
+                  <option value='dips'>Dips</option>
+                  <option value='planks'>Planks</option>
+                </Select>
+              </FormControl>
+              <FormControl className={classes.formControl}>
+                <InputLabel htmlFor="exercise-reps">Reps</InputLabel>
+                <Select
+                  native
+                  required
+                  name='reps'
+                  value={reps}
+                  onChange={this.handleChange}
+                  input={<Input id="exercise-reps" />}
+                >
+                  <option value=""></option>
+                  <option value={5}>5</option>
+                  <option value={10}>10</option>
+                  <option value={15}>15</option>
+                  <option value={20}>20</option>
+                  <option value={25}>25</option>
+                  <option value={30}>30</option>
+                  <option value={35}>35</option>
+                  <option value={40}>40</option>
+                  <option value={45}>45</option>
+                  <option value={50}>50</option>
+                </Select>
+              </FormControl>
+            </form>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={this.handleClose} color="secondary">
+                Cancel
+            </Button>
+            <Button type='submit' form='form' color="primary">
+                Log!
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </div>
     );
   }
 }
