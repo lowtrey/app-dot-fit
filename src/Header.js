@@ -21,6 +21,11 @@ import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers';
 // move styles to their own components
 
 const styles = theme => ({
+	root: {
+		width: '100%',
+		textAlign: 'center',
+		marginBottom: '1rem'
+  },
 	container: {
 		display: 'flex',
 		flexWrap: 'wrap',
@@ -68,7 +73,7 @@ class Header extends React.Component {
 	render() {
 		const { classes } = this.props;
 		return (
-			<div className='Header'>
+			<div className={classes.root}>
 				<div>
 					<h1>App.Fit</h1>
 					<h5>&#123;code - move - repeat&#125;</h5>
@@ -149,7 +154,6 @@ class Header extends React.Component {
 						</DialogActions>
 					</Dialog>
 				</div>
-				<hr /><br />
 			</div>
 		);
 	}
