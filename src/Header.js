@@ -11,7 +11,7 @@ function Header() {
 					variant='h2' 
 					gutterBottom
 				>
-					App.Fit
+					app<Typography color='textPrimary' variant='subtitle2' style={{display: 'inline'}}>dot</Typography>fit
 				</Typography>
 				<Typography 
 					variant='subtitle1' 
