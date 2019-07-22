@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './Header';
-import RecordsDisplay from './RecordsDisplay';
+import RecordsContainer from './RecordsContainer';
 import Footer from './Footer';
 import './App.css';
 
@@ -9,7 +9,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-				<RecordsDisplay />
+				<RecordsContainer />
 				<Footer />
       </div>
     );
