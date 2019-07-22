@@ -1,14 +1,27 @@
 import React from 'react';
+import Paper from '@material-ui/core/Paper';
 import SessionDialog from './SessionDialog';
+import Typography from '@material-ui/core/Typography';
 import './Header.css';
 
 function Header() {
 	return (
-		<div className='Header'>
-				<h1>App.Fit</h1>
-				<h5>&#123;code - move - repeat&#125;</h5>
+			<Paper className='Header' >
+				<Typography 
+					variant='h2' 
+					gutterBottom
+				>
+					App.Fit
+				</Typography>
+				<Typography 
+					variant='subtitle1' 
+					gutterBottom 
+					paragraph
+				>
+					&#123;code - move - repeat&#125;
+				</Typography>
 				<SessionDialog/>
-		</div>
+			</Paper>
 	);
 }
 
