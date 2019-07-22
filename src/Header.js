@@ -1,4 +1,3 @@
-// import 'date-fns';
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -37,17 +36,19 @@ class Header extends React.Component {
 		super(props);
 		this.state = {
 			open: false,
+			selectedDate: Date(),
 			exercise: '',
 			reps: '',
 			sessionLog: [
 				{}
 			]
 		};
+		this.handleDateChange = this.handleDateChange.bind(this);
 		this.handleClickOpen = this.handleClickOpen.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.handleClose = this.handleClose.bind(this);
-	}
+	};
 	handleChange(event) {
 		this.setState({ [event.target.name]: event.target.value });
 	};
@@ -59,7 +60,10 @@ class Header extends React.Component {
 	};
 	handleSubmit() {
 		console.log("Submitted!");
-	}
+	};
+	handleDateChange(e) {
+		this.setState({ selectedDate: e });
+	};
 
 	render() {
 		const { classes } = this.props;
@@ -86,11 +90,10 @@ class Header extends React.Component {
 									<MuiPickersUtilsProvider utils={DateFnsUtils}>
 										<DatePicker
 											label="Date"
-											value={this.selectedDate}
-											onChange={this.handleDateChange}
-											autoOk
 											disableFuture
-											animateYearScrolling
+											inputVariant='outlined'
+											value={this.state.selectedDate}
+											onChange={this.handleDateChange}
 										/>
 									</MuiPickersUtilsProvider>
 								</FormControl>
