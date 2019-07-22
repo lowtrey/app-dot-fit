@@ -77,8 +77,6 @@ class Header extends React.Component {
 				<div>
 					<h1>App.Fit</h1>
 					<h5>&#123;code - move - repeat&#125;</h5>
-				</div>
-				<div>
 					<Button 
 						size='large' 
 						color='primary'
@@ -87,73 +85,73 @@ class Header extends React.Component {
 					>
 						New Session
 					</Button>
-					<Dialog disableBackdropClick disableEscapeKeyDown open={this.state.open} onClose={this.handleClose}>
-						<DialogTitle>Enter Session Details:</DialogTitle>
-						<DialogContent>
-							<form className={classes.container} id='form' onSubmit={this.handleSubmit}>
-								<FormControl className={classes.formControl}>
-									<MuiPickersUtilsProvider utils={DateFnsUtils}>
-										<DatePicker
-											label="Date"
-											disableFuture
-											inputVariant='outlined'
-											value={this.state.selectedDate}
-											onChange={this.handleDateChange}
-										/>
-									</MuiPickersUtilsProvider>
-								</FormControl>
-								<FormControl className={classes.formControl}>
-									<InputLabel htmlFor="exercise-type">Exercise</InputLabel>
-									<Select
-										native
-										required
-										name='exercise'
-										value={this.state.exercise}
-										onChange={this.handleChange}
-										input={<Input id="exercise-type" />}
-									>
-										<option value=""></option>
-										<option value='squats'>Squats</option>
-										<option value='pushups'>Pushups</option>
-										<option value='dips'>Dips</option>
-										<option value='planks'>Planks</option>
-									</Select>
-								</FormControl>
-								<FormControl className={classes.formControl}>
-									<InputLabel htmlFor="exercise-reps">Reps</InputLabel>
-									<Select
-										native
-										required
-										name='reps'
-										value={this.state.reps}
-										onChange={this.handleChange}
-										input={<Input id="exercise-reps" />}
-									>
-										<option value=""></option>
-										<option value={5}>5</option>
-										<option value={10}>10</option>
-										<option value={15}>15</option>
-										<option value={20}>20</option>
-										<option value={25}>25</option>
-										<option value={30}>30</option>
-										<option value={35}>35</option>
-										<option value={40}>40</option>
-										<option value={45}>45</option>
-										<option value={50}>50</option>
-									</Select>
-								</FormControl>
-							</form>
-						</DialogContent>
-						<DialogActions>
-							<Button onClick={this.handleClose} color="secondary">
-									Cancel
-							</Button>
-							<Button type='submit' form='form' color="primary">
-									Log!
-							</Button>
-						</DialogActions>
-					</Dialog>
 				</div>
+				<Dialog disableBackdropClick disableEscapeKeyDown open={this.state.open} onClose={this.handleClose}>
+					<DialogTitle>Enter Session Details:</DialogTitle>
+					<DialogContent>
+						<form className={classes.container} id='form' onSubmit={this.handleSubmit}>
+							<FormControl className={classes.formControl}>
+								<MuiPickersUtilsProvider utils={DateFnsUtils}>
+									<DatePicker
+										label="Date"
+										disableFuture
+										inputVariant='outlined'
+										value={this.state.selectedDate}
+										onChange={this.handleDateChange}
+									/>
+								</MuiPickersUtilsProvider>
+							</FormControl>
+							<FormControl className={classes.formControl}>
+								<InputLabel htmlFor="exercise-type">Exercise</InputLabel>
+								<Select
+									native
+									required
+									name='exercise'
+									value={this.state.exercise}
+									onChange={this.handleChange}
+									input={<Input id="exercise-type" />}
+								>
+									<option value=""></option>
+									<option value='squats'>Squats</option>
+									<option value='pushups'>Pushups</option>
+									<option value='dips'>Dips</option>
+									<option value='planks'>Planks</option>
+								</Select>
+							</FormControl>
+							<FormControl className={classes.formControl}>
+								<InputLabel htmlFor="exercise-reps">Reps</InputLabel>
+								<Select
+									native
+									required
+									name='reps'
+									value={this.state.reps}
+									onChange={this.handleChange}
+									input={<Input id="exercise-reps" />}
+								>
+									<option value=""></option>
+									<option value={5}>5</option>
+									<option value={10}>10</option>
+									<option value={15}>15</option>
+									<option value={20}>20</option>
+									<option value={25}>25</option>
+									<option value={30}>30</option>
+									<option value={35}>35</option>
+									<option value={40}>40</option>
+									<option value={45}>45</option>
+									<option value={50}>50</option>
+								</Select>
+							</FormControl>
+						</form>
+					</DialogContent>
+					<DialogActions>
+						<Button onClick={this.handleClose} color="secondary">
+								Cancel
+						</Button>
+						<Button type='submit' form='form' color="primary">
+								Log!
+						</Button>
+					</DialogActions>
+				</Dialog>
 			</div>
 		);
 	}
