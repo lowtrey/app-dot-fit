@@ -5,7 +5,7 @@ import './Header.css';
 
 function Header() {
 	return (
-			<Paper elevation='3' className='Header' >
+			<Paper elevation={3} className='Header' >
 				<Typography 
 					color='primary'
 					variant='h2' 

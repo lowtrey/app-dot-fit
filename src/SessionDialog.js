@@ -51,7 +51,13 @@ class SessionDialog extends React.Component {
 		this.setState({ open: false, exercise: '', reps: '' });
 	};
 	handleSubmit() {
-		console.log("Submitted!");
+    const newSession = {
+      date: this.state.selectedDate,
+      exercise: this.state.exercise,
+      reps: Number(this.state.reps)
+    };
+    this.handleClose();
+    this.props.addSession(newSession);
 	};
 	handleDateChange(e) {
 		this.setState({ selectedDate: e });
@@ -73,7 +79,7 @@ class SessionDialog extends React.Component {
         <Dialog disableBackdropClick open={open} onClose={this.handleClose}>
           <DialogTitle>Enter Session Details:</DialogTitle>
           <DialogContent>
-            <form className={classes.container} id='form' onSubmit={this.handleSubmit}>
+            <form className={classes.container}>
               <FormControl className={classes.formControl}>
                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                   <DatePicker
@@ -131,7 +137,7 @@ class SessionDialog extends React.Component {
             <Button onClick={this.handleClose} color="secondary">
                 Cancel
             </Button>
-            <Button type='submit' form='form' color="primary">
+            <Button onClick={this.handleSubmit} color="primary">
                 Log!
             </Button>
           </DialogActions>

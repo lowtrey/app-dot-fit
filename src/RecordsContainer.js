@@ -4,13 +4,20 @@ import SessionDialog from './SessionDialog';
 class RecordsContainer extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			sessions: []
+		};
+		this.addSession = this.addSession.bind(this);
 	};
-	
+	addSession(newSession) {
+		this.state.sessions.push(newSession);
+		console.log(this.state.sessions);
+	};
+
 	render() {
 		return (
 			<div>
-				<SessionDialog />
+				<SessionDialog addSession={this.addSession} />
 			</div>
 		);
 	}

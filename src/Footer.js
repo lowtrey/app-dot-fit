@@ -5,7 +5,7 @@ import './Footer.css';
 
 function Footer() {
 	return (
-			<Paper elevation='3' className='Footer' >
+			<Paper elevation={3} className='Footer' >
 				<Typography 
 					color='textSecondary'
 					variant='subtitle2' 
