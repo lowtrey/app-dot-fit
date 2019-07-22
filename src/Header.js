@@ -1,23 +1,14 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import SessionDialog from './SessionDialog';
+import './Header.css';
 
 //TODO
 // create array of sessionLogs and add to it after submitting new session in form
 // style recordsDisplay components similar to miniPalettes from colorcopy
 // save logs in localStorage
 // save logs to database (research serverless)
-// move dialog to its own component
 // move styles to their own components
-
-const styles = theme => ({
-	root: {
-		width: '100%',
-		textAlign: 'center',
-		marginBottom: '1rem'
-  }
-});
 
 class Header extends React.Component {
 	constructor(props) {
@@ -54,10 +45,8 @@ class Header extends React.Component {
 	};
 
 	render() {
-		const { classes } = this.props;
 		return (
-			<div className={classes.root}>
-				<div>
+			<div className='Header'>
 					<h1>App.Fit</h1>
 					<h5>&#123;code - move - repeat&#125;</h5>
 					<Button 
@@ -68,14 +57,13 @@ class Header extends React.Component {
 					>
 						New Session
 					</Button>
-				</div>
-				<SessionDialog 
-					handleClose={this.handleClose}
-					{...this.state} 
-				/>
+					<SessionDialog 
+						handleClose={this.handleClose}
+						{...this.state} 
+					/>
 			</div>
 		);
 	}
 }
 
-export default withStyles(styles, { withTheme: true })(Header);
+export default Header;
