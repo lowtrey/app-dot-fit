@@ -10,8 +10,7 @@ const styles = {
   card: {
     width: '45%',
     height: '45%',
-    margin: '0.4rem',
-    zIndex: '10'
+    margin: '0.4rem'
   },
   media: {
     height: 140,
@@ -20,21 +19,21 @@ const styles = {
 
 class PR extends React.Component {
   render() {
-    const { classes } = this.props
+    const { classes, exercise, reps } = this.props
     return (
       <Card raised className={classes.card}>
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            image={require('../assets/images/plank.jpg')}
+            image={require(`../assets/images/${exercise}.jpg`)}
             title="test"
           />
           <CardContent>
             <Typography variant="h5" component="h2">
-              {this.props.exercise}
+              {exercise}
             </Typography>
             <Typography variant="body2" color="textSecondary">
-              {`${this.props.reps} total reps`}
+              {`${reps} total reps`}
             </Typography>
           </CardContent>
         </CardActionArea>
