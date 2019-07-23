@@ -14,7 +14,7 @@ const styles = {
     height: '50%'
   },
   media: {
-    height: 140,
+    height: 160,
   },
 };
 
@@ -26,7 +26,7 @@ class PR extends React.Component {
         <CardActionArea>
           <CardMedia
             className={classes.media}
-            image="/static/images/cards/contemplative-reptile.jpg"
+            image={require('../assets/images/plank.jpg')}
             title="Contemplative Reptile"
           />
           <CardContent>
