@@ -21,7 +21,7 @@ function PR(props) {
             {exercise}
           </Typography>
           <Typography variant="body2" color="textSecondary">
-            {`${reps} total reps`}
+            {`${reps} total ${exercise === 'Planks' ? 'seconds' : 'reps'}`}
           </Typography>
         </CardContent>
       </CardActionArea>

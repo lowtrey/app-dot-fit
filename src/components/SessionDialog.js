@@ -31,10 +31,7 @@ class SessionDialog extends React.Component {
       open: false,
 			selectedDate: Date(),
 			exercise: '',
-			reps: '',
-			sessionLog: [
-				{}
-			]
+			reps: ''
 		};
 		this.handleDateChange = this.handleDateChange.bind(this);
 		this.handleClickOpen = this.handleClickOpen.bind(this);
@@ -76,7 +73,8 @@ class SessionDialog extends React.Component {
           variant='contained'
           onClick={this.handleClickOpen}
         >
-          <AddCircleIcon style={{height: '1rem'}} className='icon' />New Session 
+          <AddCircleIcon style={{height: '1rem'}} className='icon' />
+          New Session 
         </Button>
         <Dialog disableBackdropClick open={open} onClose={this.handleClose}>
           <DialogTitle>Enter Session Details:</DialogTitle>
@@ -107,7 +105,7 @@ class SessionDialog extends React.Component {
                   <option value='Squats'>Squats</option>
                   <option value='Push-ups'>Pushups</option>
                   <option value='Dips'>Dips</option>
-                  <option value='Planks'>Planks (s)</option>
+                  <option value='Planks'>Plank(secs)</option>
                 </Select>
               </FormControl>
               <FormControl className={classes.formControl}>
