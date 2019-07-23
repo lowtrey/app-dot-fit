@@ -1,14 +1,15 @@
 .PRContainer {
   width: 60%;
-  height: 70vh;
+  height: 72vh;
   margin-top: 1rem;
-  padding: 1rem;
+  padding: .5rem;
 }
 
 .CardContainer {
-  height: 90%;
+  height: 95%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  align-content: center;
   justify-content: center;
+  overflow: scroll;
 }

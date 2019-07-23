@@ -1,7 +1,6 @@
 .Footer {
-  width: 62%;
-  padding-bottom: 1rem;
+  width: 60%;
+  padding: .5rem;
   position: absolute;
   bottom: 1rem;
-  height: 1%;
 }

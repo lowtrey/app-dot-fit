@@ -70,8 +70,8 @@ class SessionDialog extends React.Component {
     return (
       <div>
         <Button
-          style={{marginBottom: '1rem', paddingLeft: '1rem'}}
-          size='large' 
+          style={{ paddingLeft: '1rem' }}
+          size='medium' 
           color='primary'
           variant='contained'
           onClick={this.handleClickOpen}
