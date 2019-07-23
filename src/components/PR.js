@@ -1,30 +1,19 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-
-const styles = {
-  card: {
-    width: '45%',
-    height: '48%',
-    margin: '0.4rem'
-  },
-  media: {
-    height: 140,
-  },
-};
+import '../styles/PR.css';
 
 class PR extends React.Component {
   render() {
-    const { classes, exercise, reps } = this.props
+    const { exercise, reps } = this.props
     return (
-      <Card raised className={classes.card}>
+      <Card raised className='card'>
         <CardActionArea>
           <CardMedia
-            className={classes.media}
+            className='media'
             image={require(`../assets/images/${exercise}.jpg`)}
             title="test"
           />
@@ -42,4 +31,4 @@ class PR extends React.Component {
   }
 }
 
-export default withStyles(styles, { withTheme: true })(PR);
+export default PR;
