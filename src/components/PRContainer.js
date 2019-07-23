@@ -18,7 +18,7 @@ class PRContainer extends React.Component {
 
 	render() {
 		const sessionsRender = this.state.sessionLogs.map(
-			(s) => <PR exercise={s.exercise} reps={s.reps} />
+			(s, i) => <PR key={i} exercise={s.exercise} reps={s.reps} />
 		);
 		return (
 				<Paper elevation={3} className='PRContainer'>
