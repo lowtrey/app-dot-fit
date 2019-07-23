@@ -9,13 +9,20 @@ function Header() {
 				<Typography 
 					color='primary'
 					variant='h2' 
-					gutterBottom
+					style={{display: 'inline'}}
 				>
-					app<Typography color='textPrimary' variant='subtitle2' style={{display: 'inline'}}>dot</Typography>fit
+					app
+				</Typography>
+				<Typography color='textPrimary' variant='subtitle2' style={{display: 'inline'}}>dot</Typography>
+				<Typography 
+					color='primary'
+					variant='h2' 
+					style={{display: 'inline'}}
+				>
+					fit
 				</Typography>
 				<Typography 
 					variant='subtitle1' 
-					gutterBottom 
 					paragraph
 				>
 					&#123;code - move - repeat&#125;
