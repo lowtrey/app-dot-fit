@@ -6,9 +6,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import '../styles/PR.css';
 
-class PR extends React.Component {
-  render() {
-    const { exercise, reps } = this.props
+function PR(props) {
+    const { exercise, reps } = props;
     return (
       <Card raised className='card'>
         <CardActionArea>
@@ -28,7 +27,6 @@ class PR extends React.Component {
         </CardActionArea>
       </Card>
     );
-  }
 }
 
 export default PR;
