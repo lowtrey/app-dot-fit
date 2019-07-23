@@ -104,10 +104,10 @@ class SessionDialog extends React.Component {
                   input={<Input id="exercise-type" />}
                 >
                   <option value=""></option>
-                  <option value='squats'>Squats</option>
-                  <option value='pushups'>Pushups</option>
-                  <option value='dips'>Dips</option>
-                  <option value='planks'>Planks</option>
+                  <option value='Squats'>Squats</option>
+                  <option value='Pushups'>Pushups</option>
+                  <option value='Dips'>Dips</option>
+                  <option value='Planks'>Planks (s)</option>
                 </Select>
               </FormControl>
               <FormControl className={classes.formControl}>
