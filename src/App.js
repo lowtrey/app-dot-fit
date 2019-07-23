@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from './Header';
-import PRContainer from './PRContainer';
-import Footer from './Footer';
-import './App.css';
+import Header from './components/Header';
+import PRContainer from './components/PRContainer';
+import Footer from './components/Footer';
+import './styles/App.css';
 
 class App extends React.Component {
   render() {
