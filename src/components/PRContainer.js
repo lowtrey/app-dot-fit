@@ -22,7 +22,7 @@ class PRContainer extends React.Component {
 		return (
 				<Paper elevation={3} className='PRContainer'>
 					<SessionDialog addSession={this.addSession} />
-					<div className='CardContainer'><PR /><PR /><PR /><PR /></div>
+					<div className='CardContainer'><PR exercise='Pushups' reps={25} /><PR /><PR /><PR /></div>
 					
 				</Paper>
 		);
