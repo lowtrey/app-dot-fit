@@ -5,29 +5,35 @@ import '../styles/Header.css';
 
 function Header() {
 	return (
-			<Paper elevation={3} className='Header' >
-				<Typography 
-					color='primary'
-					variant='h2' 
-					style={{display: 'inline'}}
-				>
-					app
-				</Typography>
-				<Typography color='textPrimary' variant='subtitle2' style={{display: 'inline'}}>dot</Typography>
-				<Typography 
-					color='primary'
-					variant='h2' 
-					style={{display: 'inline'}}
-				>
-					fit
-				</Typography>
-				<Typography 
-					variant='subtitle1' 
-					paragraph
-				>
-					&#123;code - move - repeat&#125;
-				</Typography>
-			</Paper>
+		<Paper elevation={3} className='Header'>
+			<Typography 
+				variant='h2' 
+				color='primary'
+				className='header-text'
+			>
+				app
+			</Typography>
+			<Typography 
+				color='textPrimary' 
+				variant='subtitle2' 
+				className='header-text'
+			>
+				dot
+			</Typography>
+			<Typography 
+				variant='h2' 
+				color='primary'
+				className='header-text'
+			>
+				fit
+			</Typography>
+			<Typography 
+				paragraph
+				variant='subtitle1'
+			>
+				&#123;code - move - repeat&#125;
+			</Typography>
+		</Paper>
 	);
 }
 

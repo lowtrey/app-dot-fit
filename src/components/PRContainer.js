@@ -21,12 +21,12 @@ class PRContainer extends React.Component {
 			(s, i) => <PR key={i} exercise={s.exercise} reps={s.reps} />
 		);
 		return (
-				<Paper elevation={3} className='PRContainer'>
-					<SessionDialog addSession={this.addSession} />
-					<div className='CardContainer'>
-						{sessionsRender}
-					</div>
-				</Paper>
+			<Paper elevation={3} className='PRContainer'>
+				<SessionDialog addSession={this.addSession} />
+				<div className='CardContainer'>
+					{sessionsRender}
+				</div>
+			</Paper>
 		);
 	}
 }
