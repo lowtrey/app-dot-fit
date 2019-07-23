@@ -7,22 +7,25 @@ import '../styles/PRContainer.css';
 class PRContainer extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			sessions: []
-		};
+		this.state = { sessionLogs: [] };
 		this.addSession = this.addSession.bind(this);
 	};
 	addSession(newSession) {
-		this.state.sessions.push(newSession);
-		console.log(this.state.sessions);
+		this.setState({
+			sessionLogs: [...this.state.sessionLogs, newSession]
+		});
 	};
 
 	render() {
+		const sessionsRender = this.state.sessionLogs.map(
+			(s) => <PR exercise={s.exercise} reps={s.reps} />
+		);
 		return (
 				<Paper elevation={3} className='PRContainer'>
 					<SessionDialog addSession={this.addSession} />
-					<div className='CardContainer'><PR exercise='Pushups' reps={25} /><PR /><PR /><PR /></div>
-					
+					<div className='CardContainer'>
+						{sessionsRender}
+					</div>
 				</Paper>
 		);
 	}

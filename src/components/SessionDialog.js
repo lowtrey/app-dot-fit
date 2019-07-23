@@ -105,7 +105,7 @@ class SessionDialog extends React.Component {
                 >
                   <option value=""></option>
                   <option value='Squats'>Squats</option>
-                  <option value='Pushups'>Pushups</option>
+                  <option value='Push-ups'>Pushups</option>
                   <option value='Dips'>Dips</option>
                   <option value='Planks'>Planks (s)</option>
                 </Select>

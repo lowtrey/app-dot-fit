@@ -10,7 +10,8 @@ const styles = {
   card: {
     width: '45%',
     height: '45%',
-    margin: '0.4rem'
+    margin: '0.4rem',
+    zIndex: '10'
   },
   media: {
     height: 140,
