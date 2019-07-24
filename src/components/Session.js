@@ -4,9 +4,9 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import '../styles/PR.css';
+import '../styles/Session.css';
 
-function PR(props) {
+function Session(props) {
   const { exercise, reps } = props;
   return (
     <Card raised className='card'>
@@ -29,4 +29,4 @@ function PR(props) {
   );
 }
 
-export default PR;
+export default Session;

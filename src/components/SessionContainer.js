@@ -1,6 +1,6 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
-import PR from './PR';
+import Session from './Session';
 import SessionDialog from './SessionDialog';
 import '../styles/SessionContainer.css';
 
@@ -18,7 +18,7 @@ class SessionContainer extends React.Component {
 
 	render() {
 		const sessions = this.state.sessionArr.map(
-			(s, i) => <PR key={i} exercise={s.exercise} reps={s.reps} />
+			(s, i) => <Session key={i} exercise={s.exercise} reps={s.reps} />
 		);
 		return (
 			<Paper elevation={3} className='SessionContainer'>
@@ -32,6 +32,8 @@ class SessionContainer extends React.Component {
 export default SessionContainer;
 
 //TODO
+// add date to card
+// sort cards array by recency
 // save logs in localStorage
 // save logs to database (research serverless)
 // move styles to their own components

@@ -58,7 +58,7 @@ class SessionDialog extends React.Component {
     this.props.addSession(newSession);
 	};
 	handleDateChange(e) {
-		this.setState({ selectedDate: e });
+    this.setState({ selectedDate: e });
 	};
   
   render() {
