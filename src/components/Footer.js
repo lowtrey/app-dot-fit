@@ -6,10 +6,7 @@ import '../styles/Footer.css';
 function Footer() {
 	return (
 		<Paper elevation={3} className='Footer' >
-			<Typography 
-				color='textSecondary'
-				variant='subtitle2' 
-			>
+			<Typography color='textSecondary' variant='subtitle2'>
 				© 2019   &#123; @lowtrey &#125;
 			</Typography>
 		</Paper>

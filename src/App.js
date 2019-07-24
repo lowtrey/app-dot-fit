@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './components/Header';
-import PRContainer from './components/PRContainer';
+import SessionContainer from './components/SessionContainer';
 import Footer from './components/Footer';
 import './styles/App.css';
 
@@ -9,7 +9,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-				<PRContainer />
+				<SessionContainer />
 				<Footer />
       </div>
     );

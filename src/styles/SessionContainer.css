@@ -1,11 +1,11 @@
-.PRContainer {
+.SessionContainer {
   width: 60%;
   height: 72vh;
   margin-top: 1rem;
   padding: .5rem;
 }
 
-.CardContainer {
+.Cards {
   height: 95%;
   width: 100%;
   display: flex;

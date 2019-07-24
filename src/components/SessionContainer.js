@@ -2,36 +2,34 @@ import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import PR from './PR';
 import SessionDialog from './SessionDialog';
-import '../styles/PRContainer.css';
+import '../styles/SessionContainer.css';
 
-class PRContainer extends React.Component {
+class SessionContainer extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { sessionLogs: [] };
+		this.state = { sessionArr: [] };
 		this.addSession = this.addSession.bind(this);
 	};
 	addSession(newSession) {
 		this.setState({
-			sessionLogs: [...this.state.sessionLogs, newSession]
+			sessionArr: [...this.state.sessionArr, newSession]
 		});
 	};
 
 	render() {
-		const sessionsRender = this.state.sessionLogs.map(
+		const sessions = this.state.sessionArr.map(
 			(s, i) => <PR key={i} exercise={s.exercise} reps={s.reps} />
 		);
 		return (
-			<Paper elevation={3} className='PRContainer'>
+			<Paper elevation={3} className='SessionContainer'>
 				<SessionDialog addSession={this.addSession} />
-				<div className='CardContainer'>
-					{sessionsRender}
-				</div>
+				<div className='Cards'>{sessions}</div>
 			</Paper>
 		);
 	}
 }
 
-export default PRContainer;
+export default SessionContainer;
 
 //TODO
 // save logs in localStorage
