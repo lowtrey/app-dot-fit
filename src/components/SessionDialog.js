@@ -78,7 +78,9 @@ class SessionDialog extends React.Component {
           New Session 
         </Button>
         <Dialog disableBackdropClick open={open} onClose={this.handleClose}>
-          <DialogTitle>Enter Session Details:</DialogTitle>
+          <DialogTitle className={classes.title}>
+            Enter Session Details:
+          </DialogTitle>
           <DialogContent>
             <form 
               id='form'

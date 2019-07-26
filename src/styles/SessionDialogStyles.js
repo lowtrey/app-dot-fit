@@ -12,6 +12,9 @@ const styles = theme => ({
   },
   icon: {
     height: '1rem'
+  },
+  title: {
+    textAlign: 'center'
   }
 });
 
