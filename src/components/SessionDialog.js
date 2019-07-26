@@ -1,18 +1,18 @@
 import React from 'react';
+import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers';
 import { withStyles } from '@material-ui/core/styles';
+import AddCircleIcon from '@material-ui/icons/AddCircleOutline';
 import Button from '@material-ui/core/Button';
+import DateFnsUtils from '@date-io/date-fns';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-import DateFnsUtils from '@date-io/date-fns';
-import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers';
-import AddCircleIcon from '@material-ui/icons/AddCircleOutline';
 
 const styles = theme => ({
 	container: {
@@ -22,7 +22,13 @@ const styles = theme => ({
 	formControl: {
 		margin: theme.spacing(1),
 		minWidth: 120,
-	},
+  },
+  button: {
+    paddingLeft: '.5rem'
+  },
+  icon: {
+    height: '1rem'
+  }
 });
 
 class SessionDialog extends React.Component {
@@ -77,13 +83,13 @@ class SessionDialog extends React.Component {
     return (
       <div>
         <Button
-          style={{ paddingLeft: '1rem' }}
           size='medium' 
           color='primary'
           variant='contained'
+          className={classes.button}
           onClick={this.handleClickOpen}
         >
-          <AddCircleIcon style={{height: '1rem'}} className='icon' />
+          <AddCircleIcon className={classes.icon} />
           New Session 
         </Button>
         <Dialog disableBackdropClick open={open} onClose={this.handleClose}>
@@ -94,19 +100,17 @@ class SessionDialog extends React.Component {
               onSubmit={this.handleSubmit}
               className={classes.container}
             >
-
               <FormControl className={classes.formControl}>
                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                   <DatePicker
                     label="Date"
                     disableFuture
-                    inputVariant='outlined'
                     value={selectedDate}
+                    inputVariant='outlined'
                     onChange={this.handleDateChange}
                   />
                 </MuiPickersUtilsProvider>
               </FormControl>
-
               <FormControl required className={classes.formControl} error={exerciseInvalid}>
                 <InputLabel htmlFor="exercise-type">Exercise</InputLabel>
                 <Select
@@ -123,7 +127,6 @@ class SessionDialog extends React.Component {
                 </Select>
                 <FormHelperText>Required</FormHelperText>
               </FormControl>
-
               <FormControl required className={classes.formControl} error={repsInvalid}>
                 <InputLabel htmlFor="exercise-reps">Reps</InputLabel>
                 <Select
@@ -146,7 +149,6 @@ class SessionDialog extends React.Component {
                 </Select>
                 <FormHelperText>Required</FormHelperText>
               </FormControl>
-
             </form>
           </DialogContent>
           <DialogActions>
