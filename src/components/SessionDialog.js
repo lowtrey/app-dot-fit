@@ -110,7 +110,7 @@ class SessionDialog extends React.Component {
                   <MenuItem value='Dips'>Dips</MenuItem>
                   <MenuItem value='Planks'>Plank(secs)</MenuItem>
                 </Select>
-                {exerciseInvalid && <FormHelperText>Required</FormHelperText>}
+                {exerciseInvalid && <FormHelperText margin='dense'>Required</FormHelperText>}
               </FormControl>
               <FormControl required className={classes.formControl} error={repsInvalid}>
                 <InputLabel htmlFor="exercise-reps">Reps</InputLabel>
@@ -132,7 +132,7 @@ class SessionDialog extends React.Component {
                   <MenuItem value={45}>45</MenuItem>
                   <MenuItem value={50}>50</MenuItem>
                 </Select>
-                {repsInvalid && <FormHelperText>Required</FormHelperText>}
+                {repsInvalid && <FormHelperText margin='dense'>Required</FormHelperText>}
               </FormControl>
             </form>
           </DialogContent>
