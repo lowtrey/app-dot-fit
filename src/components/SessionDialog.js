@@ -8,10 +8,12 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
+import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers';
 import AddCircleIcon from '@material-ui/icons/AddCircleOutline';
+import { ValidatorForm, TextValidator, SelectValidator } from 'react-material-ui-form-validator';
 
 const styles = theme => ({
 	container: {
@@ -79,7 +81,11 @@ class SessionDialog extends React.Component {
         <Dialog disableBackdropClick open={open} onClose={this.handleClose}>
           <DialogTitle>Enter Session Details:</DialogTitle>
           <DialogContent>
-            <form className={classes.container}>
+            <ValidatorForm 
+              id='form'
+              onSubmit={this.handleSubmit}
+              instantValidate={false}
+            >
               <FormControl className={classes.formControl}>
                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                   <DatePicker
@@ -92,52 +98,52 @@ class SessionDialog extends React.Component {
                 </MuiPickersUtilsProvider>
               </FormControl>
               <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="exercise-type">Exercise</InputLabel>
-                <Select
-                  native
+                <SelectValidator
                   required
                   name='exercise'
+                  label='Exercise'
                   value={exercise}
                   onChange={this.handleChange}
-                  input={<Input id="exercise-type" />}
                 >
-                  <option value=""></option>
-                  <option value='Squats'>Squats</option>
-                  <option value='Push-ups'>Pushups</option>
-                  <option value='Dips'>Dips</option>
-                  <option value='Planks'>Plank(secs)</option>
-                </Select>
+                  <MenuItem value=""></MenuItem>
+                  <MenuItem value='Squats'>Squats</MenuItem>
+                  <MenuItem value='Push-ups'>Pushups</MenuItem>
+                  <MenuItem value='Dips'>Dips</MenuItem>
+                  <MenuItem value='Planks'>Plank(secs)</MenuItem>
+                </SelectValidator>
               </FormControl>
               <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="exercise-reps">Reps</InputLabel>
-                <Select
-                  native
+                <SelectValidator
                   required
                   name='reps'
+                  label='Reps'
                   value={reps}
                   onChange={this.handleChange}
-                  input={<Input id="exercise-reps" />}
                 >
-                  <option value=""></option>
-                  <option value={5}>5</option>
-                  <option value={10}>10</option>
-                  <option value={15}>15</option>
-                  <option value={20}>20</option>
-                  <option value={25}>25</option>
-                  <option value={30}>30</option>
-                  <option value={35}>35</option>
-                  <option value={40}>40</option>
-                  <option value={45}>45</option>
-                  <option value={50}>50</option>
-                </Select>
+                  <MenuItem value=""></MenuItem>
+                  <MenuItem value={5}>5</MenuItem>
+                  <MenuItem value={10}>10</MenuItem>
+                  <MenuItem value={15}>15</MenuItem>
+                  <MenuItem value={20}>20</MenuItem>
+                  <MenuItem value={25}>25</MenuItem>
+                  <MenuItem value={30}>30</MenuItem>
+                  <MenuItem value={35}>35</MenuItem>
+                  <MenuItem value={40}>40</MenuItem>
+                  <MenuItem value={45}>45</MenuItem>
+                  <MenuItem value={50}>50</MenuItem>
+                </SelectValidator>
               </FormControl>
-            </form>
+            </ValidatorForm>
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="secondary">
                 Cancel
             </Button>
-            <Button onClick={this.handleSubmit} color="primary">
+            <Button 
+              type='submit'
+              color="primary"
+              form='form'
+            >
                 Log!
             </Button>
           </DialogActions>
