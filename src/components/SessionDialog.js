@@ -5,15 +5,14 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import FormHelperText from '@material-ui/core/FormHelperText';
 import InputLabel from '@material-ui/core/InputLabel';
-import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers';
 import AddCircleIcon from '@material-ui/icons/AddCircleOutline';
-import { ValidatorForm, TextValidator, SelectValidator } from 'react-material-ui-form-validator';
 
 const styles = theme => ({
 	container: {
@@ -33,7 +32,9 @@ class SessionDialog extends React.Component {
       open: false,
 			selectedDate: Date(),
 			exercise: '',
-			reps: ''
+      reps: '',
+      exerciseInvalid: null,
+      repsInvalid: null
 		};
 		this.handleDateChange = this.handleDateChange.bind(this);
 		this.handleClickOpen = this.handleClickOpen.bind(this);
@@ -42,29 +43,36 @@ class SessionDialog extends React.Component {
 		this.handleClose = this.handleClose.bind(this);
   };
   handleChange(e) {
-		this.setState({ [e.target.name]: e.target.value });
+		this.setState({ [e.target.name]: e.target.value, exerciseInvalid: null, repsInvalid: null });
 	};
 	handleClickOpen() {
 		this.setState({ open: true });
 	};
 	handleClose() {
-		this.setState({ open: false, exercise: '', reps: '' });
+		this.setState({ open: false, exercise: '', reps: '', exerciseInvalid: null, repsInvalid: null });
 	};
-	handleSubmit() {
-    const newSession = {
-      date: this.state.selectedDate,
-      exercise: this.state.exercise,
-      reps: Number(this.state.reps)
-    };
-    this.handleClose();
-    this.props.addSession(newSession);
+	handleSubmit(e) {
+    e.preventDefault();
+    if(this.state.exercise === '') {
+      this.setState({ exerciseInvalid: true });
+    } else if(this.state.reps === '') {
+        this.setState({ repsInvalid: true });
+    } else {
+        const newSession = {
+          date: this.state.selectedDate,
+          exercise: this.state.exercise,
+          reps: Number(this.state.reps)
+        };
+        this.handleClose();
+        this.props.addSession(newSession);
+      };
 	};
 	handleDateChange(e) {
     this.setState({ selectedDate: e });
 	};
   
   render() {
-    const { exercise, open, reps, selectedDate } = this.state;
+    const { exercise, exerciseInvalid, open, reps, repsInvalid, selectedDate } = this.state;
     const { classes } = this.props;
     return (
       <div>
@@ -81,11 +89,12 @@ class SessionDialog extends React.Component {
         <Dialog disableBackdropClick open={open} onClose={this.handleClose}>
           <DialogTitle>Enter Session Details:</DialogTitle>
           <DialogContent>
-            <ValidatorForm 
+            <form 
               id='form'
               onSubmit={this.handleSubmit}
-              instantValidate={false}
+              className={classes.container}
             >
+
               <FormControl className={classes.formControl}>
                 <MuiPickersUtilsProvider utils={DateFnsUtils}>
                   <DatePicker
@@ -97,28 +106,31 @@ class SessionDialog extends React.Component {
                   />
                 </MuiPickersUtilsProvider>
               </FormControl>
-              <FormControl className={classes.formControl}>
-                <SelectValidator
-                  required
+
+              <FormControl required className={classes.formControl} error={exerciseInvalid}>
+                <InputLabel htmlFor="exercise-type">Exercise</InputLabel>
+                <Select
                   name='exercise'
-                  label='Exercise'
                   value={exercise}
                   onChange={this.handleChange}
+                  inputProps={{ id: 'exercise-type' }}
                 >
                   <MenuItem value=""></MenuItem>
                   <MenuItem value='Squats'>Squats</MenuItem>
                   <MenuItem value='Push-ups'>Pushups</MenuItem>
                   <MenuItem value='Dips'>Dips</MenuItem>
                   <MenuItem value='Planks'>Plank(secs)</MenuItem>
-                </SelectValidator>
+                </Select>
+                <FormHelperText>Required</FormHelperText>
               </FormControl>
-              <FormControl className={classes.formControl}>
-                <SelectValidator
-                  required
+
+              <FormControl required className={classes.formControl} error={repsInvalid}>
+                <InputLabel htmlFor="exercise-reps">Reps</InputLabel>
+                <Select
                   name='reps'
-                  label='Reps'
                   value={reps}
                   onChange={this.handleChange}
+                  inputProps={{ id: 'exercise-reps' }}
                 >
                   <MenuItem value=""></MenuItem>
                   <MenuItem value={5}>5</MenuItem>
@@ -131,9 +143,11 @@ class SessionDialog extends React.Component {
                   <MenuItem value={40}>40</MenuItem>
                   <MenuItem value={45}>45</MenuItem>
                   <MenuItem value={50}>50</MenuItem>
-                </SelectValidator>
+                </Select>
+                <FormHelperText>Required</FormHelperText>
               </FormControl>
-            </ValidatorForm>
+
+            </form>
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="secondary">
