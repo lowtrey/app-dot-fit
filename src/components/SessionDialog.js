@@ -104,11 +104,11 @@ class SessionDialog extends React.Component {
                   onChange={this.handleChange}
                   inputProps={{ id: 'exercise-type' }}
                 >
-                  <MenuItem value=""></MenuItem>
-                  <MenuItem value='Squats'>Squats</MenuItem>
-                  <MenuItem value='Push-ups'>Pushups</MenuItem>
-                  <MenuItem value='Dips'>Dips</MenuItem>
-                  <MenuItem value='Planks'>Plank(secs)</MenuItem>
+                  <MenuItem dense value=""></MenuItem>
+                  <MenuItem dense value='Squats'>Squats</MenuItem>
+                  <MenuItem dense value='Push-ups'>Pushups</MenuItem>
+                  <MenuItem dense value='Dips'>Dips</MenuItem>
+                  <MenuItem dense value='Planks'>Plank(secs)</MenuItem>
                 </Select>
                 {exerciseInvalid && <FormHelperText margin='dense'>Required</FormHelperText>}
               </FormControl>
@@ -120,17 +120,17 @@ class SessionDialog extends React.Component {
                   onChange={this.handleChange}
                   inputProps={{ id: 'exercise-reps' }}
                 >
-                  <MenuItem value=""></MenuItem>
-                  <MenuItem value={5}>5</MenuItem>
-                  <MenuItem value={10}>10</MenuItem>
-                  <MenuItem value={15}>15</MenuItem>
-                  <MenuItem value={20}>20</MenuItem>
-                  <MenuItem value={25}>25</MenuItem>
-                  <MenuItem value={30}>30</MenuItem>
-                  <MenuItem value={35}>35</MenuItem>
-                  <MenuItem value={40}>40</MenuItem>
-                  <MenuItem value={45}>45</MenuItem>
-                  <MenuItem value={50}>50</MenuItem>
+                  <MenuItem dense value=""></MenuItem>
+                  <MenuItem dense value={5}>5</MenuItem>
+                  <MenuItem dense value={10}>10</MenuItem>
+                  <MenuItem dense value={15}>15</MenuItem>
+                  <MenuItem dense value={20}>20</MenuItem>
+                  <MenuItem dense value={25}>25</MenuItem>
+                  <MenuItem dense value={30}>30</MenuItem>
+                  <MenuItem dense value={35}>35</MenuItem>
+                  <MenuItem dense value={40}>40</MenuItem>
+                  <MenuItem dense value={45}>45</MenuItem>
+                  <MenuItem dense value={50}>50</MenuItem>
                 </Select>
                 {repsInvalid && <FormHelperText margin='dense'>Required</FormHelperText>}
               </FormControl>
