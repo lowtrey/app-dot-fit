@@ -14,22 +14,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 
-const styles = theme => ({
-	container: {
-		display: 'flex',
-		flexWrap: 'wrap',
-	},
-	formControl: {
-		margin: theme.spacing(1),
-		minWidth: 120,
-  },
-  button: {
-    paddingLeft: '.5rem'
-  },
-  icon: {
-    height: '1rem'
-  }
-});
+import styles from '../styles/SessionDialogStyles';
 
 class SessionDialog extends React.Component {
   constructor(props) {
