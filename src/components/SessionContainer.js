@@ -36,4 +36,3 @@ export default SessionContainer;
 // sort cards array by recency
 // save logs in localStorage
 // save logs to database (research serverless)
-// move styles to their own components

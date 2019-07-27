@@ -13,7 +13,6 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-
 import styles from '../styles/SessionDialogStyles';
 
 class SessionDialog extends React.Component {
