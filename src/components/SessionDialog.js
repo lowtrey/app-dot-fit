@@ -14,33 +14,21 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import styles from '../styles/SessionDialogStyles';
+import useSelectState from '../hooks/useSelectState';
 
 function SessionDialog(props) {
-  const [exerciseInvalid, setExerciseInvalid] = useState(null);
+  const [exercise, exerciseInvalid, setExerciseInvalid, handleExerciseChange, resetExercise] = useSelectState('');
+  const [reps, repsInvalid, setRepsInvalid, handleRepsChange, resetReps] = useSelectState('');
   const [selectedDate, setSelectedDate] = useState(Date());
-  const [repsInvalid, setRepsInvalid] = useState(null);
-  const [exercise, setExercise] = useState('');
   const [open, setOpen] = useState(false);
-  const [reps, setReps] = useState('');
   const { classes } = props;
 
   const handleDateChange = e => setSelectedDate(e);
   const handleClickOpen = () => setOpen(true);
-  const handleChange = e => {
-    if(e.target.name === 'exercise') {
-      setExercise(e.target.value);
-    } else if (e.target.name === 'reps') {
-      setReps(e.target.value);
-    }
-    setExerciseInvalid(null);
-    setRepsInvalid(null);
-	};
 	const handleClose = () => {
     setOpen(false);
-    setExercise('');
-    setReps('');
-    setExerciseInvalid(null);
-    setRepsInvalid(null);
+    resetExercise();
+    resetReps();
 	};
 	const handleSubmit = e => {
     e.preventDefault();
@@ -97,7 +85,7 @@ function SessionDialog(props) {
               <Select
                 name='exercise'
                 value={exercise}
-                onChange={handleChange}
+                onChange={handleExerciseChange}
                 inputProps={{ id: 'exercise-type' }}
               >
                 <MenuItem dense value=""></MenuItem>
@@ -113,7 +101,7 @@ function SessionDialog(props) {
               <Select
                 name='reps'
                 value={reps}
-                onChange={handleChange}
+                onChange={handleRepsChange}
                 inputProps={{ id: 'exercise-reps' }}
               >
                 <MenuItem dense value=""></MenuItem>
