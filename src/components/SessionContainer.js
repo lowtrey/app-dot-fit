@@ -21,9 +21,3 @@ function SessionContainer() {
 }
 
 export default SessionContainer;
-
-//TODO
-// add date to card
-// sort cards array by recency
-// save logs in localStorage
-// save logs to database (research serverless)

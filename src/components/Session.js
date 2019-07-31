@@ -6,6 +6,12 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import '../styles/Session.css';
 
+//TODO
+// add date to card
+// sort cards array by recency
+// save logs in localStorage
+// save logs to database (research serverless)
+
 function Session(props) {
   const { exercise, reps } = props;
   return (
