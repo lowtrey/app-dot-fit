@@ -16,13 +16,16 @@ import Select from '@material-ui/core/Select';
 import styles from '../styles/SessionDialogStyles';
 
 function SessionDialog(props) {
-  const [open, setOpen] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(Date());
-  const [exercise, setExercise] = useState('');
-  const [reps, setReps] = useState('');
   const [exerciseInvalid, setExerciseInvalid] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(Date());
   const [repsInvalid, setRepsInvalid] = useState(null);
+  const [exercise, setExercise] = useState('');
+  const [open, setOpen] = useState(false);
+  const [reps, setReps] = useState('');
+  const { classes } = props;
 
+  const handleDateChange = e => setSelectedDate(e);
+  const handleClickOpen = () => setOpen(true);
   const handleChange = e => {
     if(e.target.name === 'exercise') {
       setExercise(e.target.value);
@@ -31,9 +34,6 @@ function SessionDialog(props) {
     }
     setExerciseInvalid(null);
     setRepsInvalid(null);
-	};
-	const handleClickOpen = () => {
-    setOpen(true);
 	};
 	const handleClose = () => {
     setOpen(false);
@@ -58,11 +58,7 @@ function SessionDialog(props) {
         props.addSession(newSession);
       };
 	};
-	const handleDateChange = e => {
-    setSelectedDate(e);
-	};
-  const { classes } = props;
-  
+
   return (
     <div>
       <Button
