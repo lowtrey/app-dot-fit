@@ -5,18 +5,17 @@ import SessionDialog from './SessionDialog';
 import '../styles/SessionContainer.css';
 
 function SessionContainer() {
-	const [sessionArr, setSessionArr] = useState([]);
+	const [sessions, setSessions] = useState([]);
 	const addSession = (newSession) => {
-		setSessionArr([...sessionArr, newSession]);
+		setSessions([...sessions, newSession]);
 	};
-	const sessions = sessionArr.map(
-		(s, i) => <Session key={i} exercise={s.exercise} reps={s.reps} />
-	);
-	
+
 	return (
 		<Paper elevation={3} className='SessionContainer'>
 			<SessionDialog addSession={addSession} />
-			<div className='Cards'>{sessions}</div>
+			<div className='Cards'>
+				{sessions.map((s, i) => <Session key={i} exercise={s.exercise} reps={s.reps}/>)}
+			</div>
 		</Paper>
 	);
 }
