@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { MuiPickersUtilsProvider, DatePicker } from '@material-ui/pickers';
 import { withStyles } from '@material-ui/core/styles';
 import AddCircleIcon from '@material-ui/icons/AddCircleOutline';
@@ -17,19 +17,11 @@ import styles from '../styles/SessionDialogStyles';
 import useSelectState from '../hooks/useSelectState';
 
 function SessionDialog(props) {
-  const [exercise, exerciseInvalid, setExerciseInvalid, handleExerciseChange, resetExercise] = useSelectState('');
-  const [reps, repsInvalid, setRepsInvalid, handleRepsChange, resetReps] = useSelectState('');
-  const [selectedDate, setSelectedDate] = useState(Date());
-  const [open, setOpen] = useState(false);
+  const [exercise, exerciseInvalid, setExerciseInvalid, handleExerciseChange, open, handleClickOpen, handleClose, selectedDate, handleDateChange] = useSelectState('');
+  const [reps, repsInvalid, setRepsInvalid, handleRepsChange] = useSelectState('');
+  
   const { classes } = props;
 
-  const handleDateChange = e => setSelectedDate(e);
-  const handleClickOpen = () => setOpen(true);
-	const handleClose = () => {
-    setOpen(false);
-    resetExercise();
-    resetReps();
-	};
 	const handleSubmit = e => {
     e.preventDefault();
     if(exercise === '') {
