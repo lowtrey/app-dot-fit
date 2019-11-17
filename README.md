@@ -1,4 +1,4 @@
-# Welcome to AppDotFit 👋
+# Welcome to AppDotFit 👋🏾
 ![Version](https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000)
 
 > AppDotFit is a fitness tracker for coders. Select from 4 basic exercises and track your completion history.
